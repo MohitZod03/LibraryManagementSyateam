@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Error Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container mt-5">
+  <h1 class="display-4 text-danger">An error occurred</h1>
+  <h3 th:text="${mass}"></h3>
+  <a href="/home" class="btn btn-primary"><i class="fas fa-home"></i> Go Back Home</a>
+</div>
+</body>
+</html>

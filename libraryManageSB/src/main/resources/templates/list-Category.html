@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div><header th:insert="fragments/header :: header"></header>  </div>
+<div class="container mt-5">
+    <h2 class="mb-4">Category Detail</h2>
+    <div th:switch="${category}">
+        <div th:case="*">
+            <table class="table table-bordered table-hover">
+                <tbody>
+                <tr>
+                    <th scope="row">Category Name</th>
+                    <td th:text="${category.name}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:case="null">
+            <h2>No Data Found</h2>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>

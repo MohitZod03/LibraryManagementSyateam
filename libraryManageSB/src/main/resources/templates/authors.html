@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Author List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .action-btn {
+            display: flex;
+            justify-content: space-around;
+        }
+        .action-btn a {
+            margin: 0 2px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div><header th:insert="fragments/header :: header"></header>  </div>
+<div class="container mt-5">
+    <div>
+        <p>
+            <a href="/add-author" class="btn btn-primary">Add Author</a>
+        </p>
+    </div>
+    <div th:switch="${authors}">
+        <div th:case="*">
+            <table class="table table-bordered">
+                <thead class="thead-light text-center">
+                <tr>
+
+                    <th scope="col">Author Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Detail</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="author : ${authors}">
+
+                    <td th:text="${author.name}"></td>
+                    <td th:text="${author.description}"></td>
+
+                    <td class="text-center">
+                        <a th:href="@{/author/{id}(id=${author.id})}" class="btn btn-primary">
+                            <i style="font-size:24px" class="fa">&#xf070;</i>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <a th:href="@{/update-author/{id}(id=${author.id})}" class="btn btn-primary">
+                            <i style="font-size:24px" class="fa">&#xf044;</i>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <a th:href="@{/remove-author/{id}(id=${author.id})}" class="btn btn-primary">
+                            <i style="font-size:24px" class="fa">&#xf014;</i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:case="null">
+            <h2>No Data Found</h2>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome -->
+</body>
+</html>
